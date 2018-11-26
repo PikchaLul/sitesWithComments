@@ -1,0 +1,98 @@
+<% include ../layout/header.ejs %>
+
+<div class="main">
+    <div class="container">
+        <div class="content">
+            <div class="comments">
+                <h3>Комментарии</h3>
+                <div class="comment-list">
+                    <%- include('../layout/comments.ejs', {items: comments}) %>
+                    <br>
+                    <span class="link" id="new">Оставить комментарий</span>
+                    <form class="comment">
+                        <h5>Имя пользователя</h5>
+                        <input class="name"
+                               type="text"
+                               name="name"
+                               placeholder="Введите имя (не более 10 символов)">
+                        <br>
+                        <h5>Тема</h5>
+                        <input class="theme"
+                               type="text"
+                               name="theme"
+                               placeholder="Введите тему (не более 40 символов)">
+                        <br>
+                        <h5>Текст комментария</h5>
+                        <label>
+                            <textarea class="body" rows="10"
+                                      name="comment"
+                                      placeholder="Введите текст (не более 4096 символов)"></textarea>
+                        </label>
+                        <br>
+                        <div class="buttons">
+                            <button class="cancel secondary">Отмена</button>
+                            <button class="send">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="box auth">
+                <h2>Вход</h2>
+                <form method="post">
+                    <div class="form-group">
+                        <label class="login">Логин</label>
+                        <input type="text" id="login" class="login">
+                    </div>
+                    <div class="form-group">
+                        <label class="password">Пароль</label>
+                        <input type="password" id="password" class="password">
+                    </div>
+                    <button class="login-buttom">Войти</button>
+                </form>
+            </div>
+            <div class="boxWithSortMethods">
+                <form class="sortMethods">
+                    <span>Сортировка по дате</span>
+                    <br>
+                    <div class="check">
+                        <label>Возрастание<input class="checkUpperDate" type="checkbox"></label>
+                        <label>Убывание<input class="checkLowerDate" type="checkbox"></label>
+                    </div>
+                    <button class="sortDate">Отсортировать по дате</button>
+                    <br>
+                    <span>Сортирвока по длине текста комментария</span>
+                    <br>
+                    <div class="check">
+                        <label>Возрастание<input class="checkUpperLen" type="checkbox"></label>
+                        <label>Убывание<input class="checkLowerLen" type="checkbox"></label>
+                    </div>
+                    <button class="sortToLen">Отсортировать по длине</button>
+                    <br>
+                    <button class="sortCombine">Комбинированная сортировка</button>
+                </form>
+            </div>
+            <div class="boxWithSearchMethods">
+                <form class="searchMetods">
+                    <label>Поиск по дате</label>
+                    <input data-toggle="datepicker" placeholder="Pick a date">
+                    <button class="addDate">Добавить дату</button>
+                    <br>
+                    <ul class="dateList">
+                    </ul>
+                    <br>
+                    <button class="searchForDate">Найти комментарий по дате</button>
+                    <br>
+                    <label>Поиск по тексту</label>
+                    <input class="textInput" type="text" placeholder="Введите текст">
+                    <button class="searchForText">Найти комментарий по тексту</button>
+                    <br>
+                    <button class="cancel">Отмена</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../layout/footer.ejs %>

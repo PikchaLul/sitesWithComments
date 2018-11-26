@@ -1,0 +1,16 @@
+<ul>
+    <% items.forEach(function(item){ %>
+        <li id="<%= item.id %>">
+            <div class="head">
+                <span><%= item.name %></span>
+                <span class="date">
+                    <%= moment(item.createdAt).fromNow(); %>
+                </span>
+                <br>
+            </div>
+            <a class="theme">Тема: <%= item.theme %></a>
+            <br>
+            <%= item.body %>
+        </li>
+    <% }) %>
+</ul>
